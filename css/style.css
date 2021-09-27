@@ -19,8 +19,14 @@ html,body,main,div,h1,p,span,img,form,input,button{
 
 html,body{    
     position:relative;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    /* overflow: hidden; */
+}
+
+img{
+    height:auto;
+    max-width: 100%;
 }
 
 body{    
@@ -29,10 +35,13 @@ body{
 
 .container{
     margin:130px 0 130px 165px;
-    width: 1275px;
-    height: 640px;
+    max-width: 1275px;    
+    max-height: 640px;  
+    height: 100vh;  
     position: relative;    
     display:flex; 
+    width:100%;
+    height: 100%;
     justify-content: flex-start;    
 }
 
@@ -46,21 +55,37 @@ body{
     content:url(../assets/desktop/logo.svg);
 }
 
+.po__image-containter{
+    position: relative;
+}
+
 .pod__image{    
     clip-path: polygon(50% 0%,100% 0%,100% 100%,38% 100%,38% 20%,0% 20%,0% 0%);  
+    max-width:888px;
+    max-height: 640px; 
     right:0;
     top:0;
-    position:absolute; 
-    width:888px;
-    height: 640px; 
+    position:absolute;  
     z-index:0;
 }
 
+.img-tablet{
+    visibility: hidden;
+}
+
 .pod__content{    
+    /* flex-shrink: 1; */
     position:absolute;
+    left:0;
     bottom:0;
-    height: 509px;
-    width: 723px;
+    max-height: 509px;
+    max-width: 723px;
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    /* margin-top: 88px;
+    margin-right:58px; */
     padding-top: 88px;
     padding-right: 58px;
     background: ver(--primary-darkGrayishBlue);
@@ -83,7 +108,7 @@ body{
 .pod__text{
     color:var(--neutral-veryLightGray);
     margin-top: 24px;
-    width:445px;
+    max-width:445px;
     font-size: 18px;
     font-weight: 300;
     line-height: 1.55;
@@ -109,8 +134,8 @@ body{
     background-color: var(--primary-darkGrayishBlue);
     outline:none;
     caret-color: var(--neutral-veryLightGray);
-    padding-left: 32px;
     color:var(--primary-white);
+    padding-left: 32px;    
     font-weight: 400;
 }
 
@@ -121,7 +146,7 @@ body{
 }
 
 .pod__input::placeholder{
-    color:var(--primary-white);    
+    color:var(--neutral-veryLightGray);    
 }
 
 .pod__btn{
@@ -161,4 +186,190 @@ body{
     bottom:-52px;    
     right:0;
     z-index:1;
+}
+
+@media only screen and(min-width:1025px) and (max-width:1200px){
+    .hidden-tablet{
+        visibility: hidden;
+    }
+
+    .container{
+        margin-left:100px;      
+    }  
+
+    .pod__title{
+        width:445px;
+        font-size: 48px;
+        
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width:1024px) {
+    .container{
+        margin:0;
+        padding-bottom: 257px;       
+        position: relative;    
+        display:flex;   
+        height:100vh;     
+    }
+    
+     .logo__container{        
+        margin-top: 50px;
+        margin-left: 39px;
+    }
+
+    .img-desktop{
+       visibility: hidden;
+       display:none;
+    }
+
+    .img-tablet{
+        visibility: visible;
+        clip-path: polygon(50% 0%,100% 0%,100% 100%,81% 100%,81% 30%,0% 30%,0% 0%);  
+    }
+
+    .pod__img .img-tablet{ 
+        max-width:491px;
+        max-height: 767px;
+    }
+
+    .pod__content{
+        left:39px;
+        top:238px;
+        max-width:635px;        
+        height:416px;       
+        margin-right: 94px;        
+        padding:0;
+    }
+
+    .pod__title{
+        font-size: 48px;
+        /* width:100%; */
+        line-height: 1.165;
+        height: 112px;
+        width:635px;
+    }
+
+    .pod__text{
+        height: 84px;
+        margin-top: 31px;
+    }
+
+    .bg__pattern{
+        left:30px;
+        bottom:-382px;
+    }
+}
+
+ 
+
+@media only screen and (max-width:767px) {
+    .container{
+        flex-direction: column;
+    }
+
+    .img-tablet{
+        visibility: hidden;        
+    }
+
+    .img-desktop{
+        visibility: hidden;
+    }
+
+    .hidden-mobile{
+        visibility: hidden;
+    }
+
+    .container{        
+        max-width:100vw;
+        max-height:812px;
+        overflow: hidden;
+        height:100vh;
+        margin:0;
+        padding:62px 24px 94px;
+        align-items: center;
+        background-image: url(../assets/mobile/image-host.jpg);
+        background-color: var(--primary-blackishBlue);
+        background-blend-mode: overlay;
+        background-size: cover;          
+    }
+
+    .logo__container{        
+        align-self: center;
+    }
+
+    .pod__content{
+        height: 398px;
+        max-width: 327px;
+        padding:0;
+        margin-top:57px;
+        position:relative;
+        text-align: center;
+    }
+
+    .pod__title{
+        font-size: 26px;
+        line-height: 1.5;
+        width:100%;
+        text-align: center;
+    }
+
+    .pod__text{
+        font-size: 15px;
+        line-height: 1.675;
+        margin:16px 0;
+    }
+
+    .pod__icons{
+        order:3;
+        height: 17px;
+        margin-top:17px;
+        margin-bottom: 17px;
+        max-width:315px;
+        justify-content: space-between;
+    }
+
+    .pod__icons>img{
+        margin-right:0;        
+    }
+    .spotify{
+        max-width:56px;
+    }
+
+    .apple-podcasts{
+        max-width:45px;
+    }
+
+    .google-podcasts {
+        max-width:73px;
+    }
+
+    .pocket-casts{
+        max-width: 77px;
+    }
+
+    .pod__form{
+        order:4;
+        height: 108px;
+        max-width:326px;
+        gap: 16px;
+        display:flex;
+        flex-direction: column;
+    }
+
+    .pod__input, .pod__btn{
+        max-width:326px;
+        width:100vw;
+        height:46px;
+    }
+
+    .pod__btn{
+        position:relative;
+        float:none;
+        margin:0;
+    }
+
+    .pod__input{
+        float:none;
+    }
 }
