@@ -27,9 +27,11 @@
             <h1 class="pod__title"><span class="green">Publish your podcasts</span> everywhere.</h1>
             <p class="pod__text">Upload your audio to Pod with a single click. We’ll then distribute your podcast to
                 Spotify, Apple Podcasts, Google Podcasts, Pocket Casts and more!</p>
-            <form class="pod__form" action="#">
+            <form class="pod__form js-form" action="#" method="GET" novalidate>
                 <input required type="email" class="pod__input js-email" placeholder="Email address" name="email" id="email">
                 <button type="submit" class="pod__btn js-submitBtn" ">Request Access</button>
+                <small role="alert" class="errorMsg js-emptyInput" aria-hidden="true">Oops! Please add your email</small>
+                <small role="alert" class="errorMsg js-notEmail" aria-hidden="true">Oops! Please check your email</small>
             </form>
 
             <div class="pod__icons">
